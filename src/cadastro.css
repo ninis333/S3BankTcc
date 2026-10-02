@@ -1,0 +1,246 @@
+.cadastro {
+  background: #ffffff;
+  color: #202338;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cadastro:not(.pagina-carregada) .containerEsquerda > *,
+.cadastro:not(.pagina-carregada) .containerDireita,
+.cadastro:not(.pagina-carregada) .footerPaginaCadastro {
+  opacity: 0;
+}
+
+.pagina-carregada .containerEsquerda > * {
+  animation: fadeInFromLeft 900ms ease-out both;
+  animation-duration: 900ms !important;
+}
+
+.containerEsquerda > :nth-child(1) {
+  animation-delay: 120ms;
+}
+
+.containerEsquerda > :nth-child(2) {
+  animation-delay: 240ms;
+}
+
+.containerEsquerda > :nth-child(3) {
+  animation-delay: 360ms;
+}
+
+.containerEsquerda > :nth-child(4) {
+  animation-delay: 480ms;
+}
+
+.pagina-carregada .logoBranco {
+  animation: fadeInFromRight 900ms ease-out 600ms both;
+  animation-duration: 900ms !important;
+}
+
+.pagina-carregada .botao-convidado {
+  animation: fadeInFromRight 900ms ease-out 900ms both;
+  animation-duration: 900ms !important;
+}
+
+.pagina-carregada .sua-organizacao-financeira {
+  animation: fadeInFromRight 900ms ease-out 900ms both;
+  animation-duration: 900ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cadastro:not(.pagina-carregada) .containerEsquerda > *,
+  .cadastro:not(.pagina-carregada) .containerDireita {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.containerTodo {
+  display: flex;
+  gap: 50px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.logo-cor {
+  height: 75px;
+  width: 227px;
+  margin-top: 100px;
+  margin-left: 60px;
+}
+
+.textoCor {
+  height: 25px;
+  width: 203px;
+  margin-top: 100px;
+  margin-left: 60px;
+}
+
+.textoCor .text-wrapper {
+  background: linear-gradient(
+    90deg,
+    rgba(54, 74, 255, 1) 0%,
+    rgba(195, 126, 255, 1) 100%
+  );
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.subtitulo {
+  color: #3f4357;
+  font-family: var(--font-berkshireSwash);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 60px;
+}
+
+.subtitulo .sua-vida-fianceira,
+.footerCadastro p {
+  color: #949494;
+  font-size: 20px;
+}
+
+.cartoes {
+  margin-top: 60px;
+  margin-left: 10px;
+  height: 450px;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+}
+
+.box {
+  width: 70%;
+  height: 70%;
+}
+
+.box .retangulo {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+  transform: translateY(-24px);
+  width: 1430px;
+  height: 820px;
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 1%,
+    rgba(37, 22, 65, 1) 37%,
+    rgba(111, 66, 193, 1) 86%,
+    rgba(84, 75, 201, 1) 95%,
+    rgba(51, 85, 211, 1) 100%
+  );
+}
+
+.logo-branco {
+  max-width: 220px;
+}
+
+.box button {
+  cursor: pointer;
+}
+
+.box .sua-vida-fianceira {
+  color: white;
+  text-align: center;
+}
+
+.logoBranco {
+  color: #ffffff;
+  font-family: var(--font-Baskervville);
+  font-weight: 400;
+  font-size: 75px;
+}
+
+.botao-convidado {
+  background: rgba(252, 252, 253, 0.199) 0%;
+  border-radius: 25px;
+  color: #ffffff;
+  font-family: var(--font-berkshireSwash);
+  font-size: 18px;
+  font-weight: 400;
+  height: 50px;
+  width: 300px;
+  border: none;
+}
+
+.sua-organizacao-financeira {
+  color: #ffffff;
+  font-family: var(--font-berkshireSwash);
+  font-size: 16px;
+  text-align: center;
+}
+
+.footerPaginaCadastro {
+  align-items: center;
+  bottom: 18px;
+  color: #6b6e8a;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  font-size: 11px;
+}
+
+.footerCadastro {
+  margin-left: 450px;
+  align-items: center;
+  display: flex;
+  gap: 72px;
+}
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footerCadastro p {
+  margin: 0;
+}
+
+.retangulo {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: rgba(148, 99, 255, 0.2);
+  border-radius: 30px;
+  z-index: 0;
+  right: 40px;
+  bottom: 40px;
+}
+
+.cadastro,
+.cadastro * {
+  font-family: var(--font-baskervville);
+}
