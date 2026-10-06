@@ -33,7 +33,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="hero">
+    <section className="hero" id="inicio">
       <div className="container hero__row">
         <div className="hero__copy">
           <span className="eyebrow">Conta digital · Cartão de metal</span>

@@ -1,0 +1,142 @@
+.about-hero {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: clamp(40px, 7vw, 80px) 0 var(--space-9);
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  top: -250px;
+  right: -100px;
+  border-radius: 50%;
+  background: var(--s3-gradient-brand-soft);
+  filter: blur(16px);
+  pointer-events: none;
+}
+
+.about-hero__content {
+  position: relative;
+  max-width: 900px;
+}
+
+.about-hero h1 {
+  max-width: 780px;
+  margin-top: var(--space-5);
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+
+.about-hero p {
+  max-width: 650px;
+  margin-top: var(--space-5);
+  color: var(--s3-muted);
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.7;
+}
+
+.about-story {
+  border-top: 1px solid var(--s3-line);
+  border-bottom: 1px solid var(--s3-line);
+  background: #ffffff05;
+}
+
+.about-story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: var(--space-8);
+}
+
+.about-story h2,
+.about-cta h2 {
+  margin-top: var(--space-4);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600;
+}
+
+.about-story__grid > p {
+  color: var(--s3-muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.about-value {
+  min-height: 220px;
+  padding: var(--space-5);
+  border: 1px solid var(--s3-line);
+  border-radius: var(--radius-card);
+  background: linear-gradient(145deg, #ffffff0a, #ffffff03);
+}
+
+.about-value > span {
+  color: #9b84ff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.about-value h3 {
+  margin-top: var(--space-6);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.about-value p {
+  margin-top: var(--space-3);
+  color: var(--s3-muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+.about-cta {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 var(--space-9);
+}
+
+.about-cta__content {
+  padding: var(--space-7);
+  border: 1px solid var(--s3-line);
+  border-radius: var(--radius-lg);
+  background: var(--s3-gradient-brand-soft);
+}
+
+.about-cta p {
+  margin: var(--space-3) 0 var(--space-5);
+  color: var(--s3-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .about-story__grid,
+  .about-values__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story__grid {
+    gap: var(--space-5);
+  }
+
+  .about-value {
+    min-height: auto;
+  }
+
+  .about-value h3 {
+    margin-top: var(--space-4);
+  }
+
+  .about-cta__content {
+    padding: var(--space-5);
+  }
+}

@@ -11,7 +11,8 @@
   animation: home-page-fade 450ms ease-out both;
 }
 
-.home-page .home-reveal {
+.home-page .home-reveal,
+.about-page .home-reveal {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -20,7 +21,8 @@
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.home-page .home-reveal--visible {
+.home-page .home-reveal--visible,
+.about-page .home-reveal--visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -30,7 +32,8 @@
     animation-duration: 450ms !important;
   }
 
-  .home-page .home-reveal {
+  .home-page .home-reveal,
+  .about-page .home-reveal {
     transition-duration: 450ms !important;
   }
 }

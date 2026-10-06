@@ -1,22 +1,19 @@
 import logo from '../assets/logo.png'
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const COLUMNS = [
   {
     title: 'Produto',
-    links: ['Conta digital', 'Cartão de metal', 'Rendimento', 'App S3Bank'],
-  },
-  {
-    title: 'Empresa',
-    links: ['Sobre o S3Bank', 'Carreiras', 'Imprensa', 'Blog'],
+    links: ['Conta digital e cartões', 'App S3Bank'],
   },
   {
     title: 'Ajuda',
-    links: ['Central de ajuda', 'Fale conosco', 'Segurança', 'Status do sistema'],
+    links: ['Central de ajuda', 'Fale conosco', 'Segurança'],
   },
   {
     title: 'Legal',
-    links: ['Termos de uso', 'Privacidade', 'Ouvidoria', 'Tarifas'],
+    links: ['Sobre o S3Bank', 'Termos de uso', 'Privacidade'],
   },
 ]
 
@@ -38,7 +35,21 @@ export default function Footer() {
               <h4>{c.title}</h4>
               <ul>
                 {c.links.map((l) => (
-                  <li key={l}><a href="#">{l}</a></li>
+                  <li key={l}>
+                    {l === 'Sobre o S3Bank' ? (
+                      <Link to="/sobre">{l}</Link>
+                    ) : l === 'Termos de uso' ? (
+                      <Link to="/termos-de-uso">{l}</Link>
+                    ) : l === 'Privacidade' ? (
+                      <Link to="/privacidade">{l}</Link>
+                    ) : l === 'Conta digital e cartões' ? (
+                      <a href="#">
+                        Conta digital<br />e cartões
+                      </a>
+                    ) : (
+                      <a href={l === 'Cartão de metal' ? '#cartoes' : '#'}>{l}</a>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>

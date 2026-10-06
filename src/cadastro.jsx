@@ -110,7 +110,7 @@
 		<div className="box">
 		<div className="retangulo">
 			<h1 className="logoBranco">S3Bank</h1>
-			<button className="botao-convidado" onClick={() => navigate('/home')}>
+			<button className="botao-convidado" onClick={() => navigate('/home#abrir-conta')}>
 			Entrar como convidado
 			</button>
 			<p className="sua-organizacao-financeira">

@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { useEffect, useLayoutEffect, useRef } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Cadastro from './cadastro.jsx'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
@@ -9,10 +9,17 @@ import AppShowcase from './components/AppShowcase.jsx'
 import Security from './components/Security.jsx'
 import FinalCTA from './components/FinalCTA.jsx'
 import Footer from './components/Footer.jsx'
+import AboutPage from './About.jsx'
+import TermsPage from './Terms.jsx'
+import PrivacyPage from './Privacy.jsx'
 import './home-animations.css'
 
 function HomePage() {
   const homeRef = useRef(null)
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [])
 
   useEffect(() => {
     const home = homeRef.current
@@ -66,11 +73,42 @@ function HomePage() {
   )
 }
 
+function ScrollToHash() {
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      return
+    }
+
+    const targetId = hash.replace('#', '')
+    const target = document.getElementById(targetId)
+
+    if (!target) return
+
+    const scrollToTarget = () => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+
+    const timeoutId = window.setTimeout(scrollToTarget, 0)
+    return () => window.clearTimeout(timeoutId)
+  }, [pathname, hash])
+
+  return null
+}
+
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Cadastro />} />
-      <Route path="/home" element={<HomePage />} />
-    </Routes>
+    <>
+      <ScrollToHash />
+      <Routes>
+        <Route path="/" element={<Cadastro />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/sobre" element={<AboutPage />} />
+        <Route path="/termos-de-uso" element={<TermsPage />} />
+        <Route path="/privacidade" element={<PrivacyPage />} />
+      </Routes>
+    </>
   )
 }

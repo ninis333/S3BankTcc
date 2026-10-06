@@ -3,13 +3,13 @@ import logo from '../assets/logo.png'
 import './Header.css'
 
 const LINKS = [
-  { label: 'Conta', href: '#beneficios' },
+  { label: 'Conta', href: '#abrir-conta' },
   { label: 'Cartões', href: '#cartoes' },
   { label: 'App', href: '#app' },
   { label: 'Segurança', href: '#seguranca' },
 ]
 
-export default function Header() {
+export default function Header({ showLinks = true }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -22,19 +22,33 @@ export default function Header() {
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="container header__row">
-        <a href="/" className="header__brand" aria-label="S3Bank">
-          <img src={logo} alt="S3Bank" />
-        </a>
+        {showLinks ? (
+          <a href="/" className="header__brand" aria-label="S3Bank">
+            <img src={logo} alt="S3Bank" />
+          </a>
+        ) : (
+          <div className="header__brand">
+            <img src={logo} alt="S3Bank" />
+          </div>
+        )}
 
-        <nav className="header__nav" aria-label="Navegação principal">
-          {LINKS.map((l) => (
-            <a key={l.href} href={l.href}>{l.label}</a>
-          ))}
-        </nav>
+        {showLinks && (
+          <>
+            <nav className="header__nav" aria-label="Navegação principal">
+              {LINKS.map((l) => (
+                <a key={l.href} href={l.href}>{l.label}</a>
+              ))}
+            </nav>
+          </>
+        )}
 
-        <div className="header__actions">
-          <a href="#" className="header__login">Entrar</a>
-          <a href="#abrir-conta" className="btn btn-primary header__cta">Abrir minha conta</a>
+        <div className={`header__actions ${showLinks ? '' : 'header__actions--no-nav'}`}>
+          <a
+            href={showLinks ? '#abrir-conta' : '/home#abrir-conta'}
+            className="btn btn-primary header__cta"
+          >
+            Abrir minha conta
+          </a>
         </div>
 
         <button
@@ -48,11 +62,18 @@ export default function Header() {
       </div>
 
       <div className={`header__mobile ${open ? 'is-open' : ''}`}>
-        {LINKS.map((l) => (
-          <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
-        ))}
-        <a href="#" onClick={() => setOpen(false)}>Entrar</a>
-        <a href="#abrir-conta" className="btn btn-primary" onClick={() => setOpen(false)}>
+        {showLinks && (
+          <>
+            {LINKS.map((l) => (
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
+            ))}
+          </>
+        )}
+        <a
+          href={showLinks ? '#abrir-conta' : '/home#abrir-conta'}
+          className="btn btn-primary"
+          onClick={() => setOpen(false)}
+        >
           Abrir minha conta
         </a>
       </div>
