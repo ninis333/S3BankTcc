@@ -12,6 +12,7 @@ import Footer from './components/Footer.jsx'
 import AboutPage from './About.jsx'
 import TermsPage from './Terms.jsx'
 import PrivacyPage from './Privacy.jsx'
+import HelpPage from './Help.jsx'
 import './home-animations.css'
 
 function HomePage() {
@@ -108,6 +109,7 @@ export default function App() {
         <Route path="/sobre" element={<AboutPage />} />
         <Route path="/termos-de-uso" element={<TermsPage />} />
         <Route path="/privacidade" element={<PrivacyPage />} />
+        <Route path="/central-de-ajuda" element={<HelpPage />} />
       </Routes>
     </>
   )

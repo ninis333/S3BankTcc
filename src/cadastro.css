@@ -121,7 +121,8 @@
 }
 
 .subtitulo .sua-vida-fianceira,
-.footerCadastro p {
+.footerCadastro p,
+.footerCadastro a {
   color: #949494;
   font-size: 20px;
 }
@@ -225,7 +226,8 @@
   gap: 6px;
 }
 
-.footerCadastro p {
+.footerCadastro p,
+.footerCadastro a {
   margin: 0;
 }
 

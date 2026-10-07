@@ -38,10 +38,22 @@ export default function Footer() {
                   <li key={l}>
                     {l === 'Sobre o S3Bank' ? (
                       <Link to="/sobre">{l}</Link>
+                    ) : l === 'Central de ajuda' ? (
+                      <Link to="/central-de-ajuda">{l}</Link>
                     ) : l === 'Termos de uso' ? (
                       <Link to="/termos-de-uso">{l}</Link>
                     ) : l === 'Privacidade' ? (
                       <Link to="/privacidade">{l}</Link>
+                    ) : l === 'Fale conosco' ? (
+                      <a
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=S3Bank%40gmail.com"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {l}
+                      </a>
+                    ) : l === 'Segurança' ? (
+                      <Link to="/home#seguranca">{l}</Link>
                     ) : l === 'Conta digital e cartões' ? (
                       <a href="#">
                         Conta digital<br />e cartões

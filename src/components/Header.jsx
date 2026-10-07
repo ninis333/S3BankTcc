@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import './Header.css'
 
@@ -22,15 +23,9 @@ export default function Header({ showLinks = true }) {
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="container header__row">
-        {showLinks ? (
-          <a href="/" className="header__brand" aria-label="S3Bank">
-            <img src={logo} alt="S3Bank" />
-          </a>
-        ) : (
-          <div className="header__brand">
-            <img src={logo} alt="S3Bank" />
-          </div>
-        )}
+        <Link to={showLinks ? '/' : '/home'} className="header__brand" aria-label="S3Bank">
+          <img src={logo} alt="S3Bank" />
+        </Link>
 
         {showLinks && (
           <>

@@ -110,7 +110,7 @@
 		<div className="box">
 		<div className="retangulo">
 			<h1 className="logoBranco">S3Bank</h1>
-			<button className="botao-convidado" onClick={() => navigate('/home#abrir-conta')}>
+			<button className="botao-convidado" onClick={() => navigate('/home')}>
 			Entrar como convidado
 			</button>
 			<p className="sua-organizacao-financeira">
@@ -136,7 +136,14 @@
 		</div>
 		<div className="footerItem">
 			<FaEnvelope />
-			<p className="email-footer">S3Bank@gmail.com</p>
+			<a
+				className="email-footer"
+				href="https://mail.google.com/mail/?view=cm&fs=1&to=S3Bank%40gmail.com"
+				target="_blank"
+				rel="noreferrer"
+			>
+				S3Bank@gmail.com
+			</a>
 		</div>
 		<div className="footerItem">
 			<FaPhone />
