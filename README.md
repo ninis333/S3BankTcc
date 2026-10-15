@@ -1,98 +1,116 @@
-# S3Bank — Site institucional
+# S3Bank Demo React
 
-Landing page da conta digital S3Bank, construída em React + Vite, inspirada na
-linguagem visual de bancos digitais brasileiros (Itaú / C6 Bank), com a
-paleta de marca do S3Bank (roxo → azul → cobalto).
+Projeto front-end de uma demonstração de banco digital fictício, construído com React e Vite. A aplicação apresenta uma experiência moderna de cadastro, landing page institucional, navegação por páginas de sobre, termos e privacidade, além de uma interface visual inspirada em bancos digitais.
 
-## Como rodar
+## Visão geral
 
-Pré-requisito: [Node.js](https://nodejs.org) 18 ou superior instalado.
+O projeto simula um banco digital com foco em:
+
+- cadastro inicial e onboarding
+- landing page institucional com apresentação da marca
+- destaque de benefícios e diferenciais
+- cartões com planos e níveis
+- apresentação da experiência de uso do app
+- páginas complementares de ajuda, termos e privacidade
+- navegação com React Router
+- layout responsivo e animações de entrada
+
+## Stack
+
+- React 18
+- React Router DOM
+- Vite
+- React Icons
+- CSS customizado
+
+## Estrutura do projeto
 
 ```bash
-# 1. Entrar na pasta do projeto
-cd s3bank
+src/
+├── App.jsx                 # rotas da aplicação
+├── cadasto.jsx             # tela de cadastro inicial
+├── About.jsx               # página Sobre
+├── Terms.jsx               # página de Termos de uso
+├── Privacy.jsx             # página de Privacidade
+├── Help.jsx                # página de Central de ajuda
+├── home-animations.css     # animações de revelação
+├── index.css               # estilos globais
+├── cadastro.css            # estilos da tela de cadastro
+├── About.css               # estilos da página Sobre
+├── Terms.css               # estilos da página Termos
+├── Privacy.css             # estilos da página Privacidade
+├── main.jsx                # ponto de entrada
+├── styles/
+│   └── tokens.css          # tokens visuais e variáveis de tema
+├── components/
+│   ├── Header.jsx
+│   ├── Hero.jsx
+│   ├── Benefits.jsx
+│   ├── CardTiers.jsx
+│   ├── AppShowcase.jsx
+│   ├── Security.jsx
+│   ├── FinalCTA.jsx
+│   └── Footer.jsx
+├── assets/
+│   ├── logo.png
+│   ├── Logo_Cor.png
+│   ├── cartoes_juntos.png
+│   └── imagens dos cartões e itens visuais
+└── ...
+```
 
-# 2. Instalar as dependências
+## Requisitos
+
+- Node.js 18 ou superior
+- npm
+
+## Instalação
+
+```bash
+git clone https://github.com/camposdevs/S3-Bank-demo-react.git
+cd S3-Bank-demo-react
 npm install
+```
 
-# 3. Rodar em modo desenvolvimento
+## Como executar
+
+```bash
 npm run dev
 ```
 
-O terminal vai mostrar um endereço parecido com `http://localhost:5173` —
-abra no navegador.
+A aplicação será iniciada em modo de desenvolvimento e normalmente estará disponível em:
 
-## Gerar a versão de produção
+```bash
+http://localhost:5173
+```
+
+## Build para produção
 
 ```bash
 npm run build
 ```
 
-Isso cria a pasta `dist/` com o site pronto para publicar em qualquer
-hospedagem estática (Vercel, Netlify, Cloudflare Pages, etc).
+Esse comando gera a pasta `dist/` com a versão pronta para deploy em plataformas como Vercel, Netlify ou GitHub Pages.
 
-Para conferir o resultado do build localmente:
+## Funcionalidades implementadas
 
-```bash
-npm run preview
-```
+- landing page institucional do S3Bank
+- cadastro inicial com identidade visual da marca
+- navegação entre páginas de informações
+- cards com benefícios e diferenciais
+- seção com planos de cartão
+- mockup do app bancário
+- seção de segurança e confiança
+- chamadas para ação e rodapé institucional
+- animações suaves de entrada/scroll
 
-## Estrutura do projeto
+## Observações
 
-```
-s3bank/
-├── index.html              # HTML base + fontes (Google Fonts)
-├── package.json
-├── vite.config.js
-└── src/
-    ├── main.jsx             # Ponto de entrada do React
-    ├── App.jsx              # Monta a ordem das seções da página
-    ├── index.css            # Estilos globais e utilitários (.btn, .section...)
-    ├── styles/
-    │   └── tokens.css        # Paleta de cores, tipografia, espaçamentos
-    ├── assets/               # Imagens dos cartões e logo
-    └── components/
-        ├── Header.jsx/.css       # Cabeçalho fixo + menu mobile
-        ├── Hero.jsx/.css         # Abertura + cartão 3D interativo
-        ├── LogoStrip.jsx/.css    # Faixa de credibilidade (Bacen, FGC...)
-        ├── Benefits.jsx/.css     # Grade de diferenciais
-        ├── CardTiers.jsx/.css    # Comparativo Bronze/Prata/Ouro/Diamante
-        ├── AppShowcase.jsx/.css  # Mockup do extrato do app
-        ├── Security.jsx/.css     # Seção de segurança/regulação
-        ├── FinalCTA.jsx/.css     # Chamada final para abrir conta
-        └── Footer.jsx/.css       # Rodapé
-```
+- O projeto é uma demonstração front-end e não possui autenticação real ou integração com backend.
+- Os textos e dados são fictícios, representando uma UI de referência para um banco digital.
+- A estrutura foi pensada para facilitar manutenção, troca de conteúdo e personalização visual.
 
-## Paleta de cores (tokens)
+## Licença
 
-Definida em `src/styles/tokens.css`:
+Este projeto foi desenvolvido para fins demonstrativos e não possui licença comercial específica definida no repositório.
 
-| Token             | Hex       | Uso                                   |
-|-------------------|-----------|----------------------------------------|
-| `--s3-violet`      | `#6F42C1` | Início do gradiente de marca           |
-| `--s3-blue`        | `#3355D3` | Meio do gradiente de marca             |
-| `--s3-cobalt`      | `#1E2B88` | Final do gradiente de marca            |
-| `--s3-bg`          | `#0A0B14` | Fundo geral do site                    |
-| `--s3-gold`        | `#CBA15C` | Acento do cartão Ouro                  |
-| `--s3-silver`      | `#C0C0C0` | Acento do cartão Prata                 |
-| `--s3-magenta`     | `#D61F7A` | Acento do cartão Bronze                |
-
-## Personalizando conteúdo
-
-- **Textos**: cada seção tem seu conteúdo direto no `.jsx` (arrays como
-  `TIERS`, `BENEFITS`, `MOVEMENTS`) — edite ali, sem precisar mexer no CSS.
-- **Imagens dos cartões**: troque os arquivos em `src/assets/` mantendo o
-  mesmo nome, ou atualize o `import` no componente correspondente.
-- **Cores**: mude os valores em `src/styles/tokens.css` — como são variáveis
-  CSS, a mudança se propaga para o site inteiro.
-- **Link de "Abrir conta"**: o formulário final (`FinalCTA.jsx`) está com
-  `onSubmit` de exemplo — troque pelo endpoint real da sua API quando tiver.
-
-## Próximos passos sugeridos
-
-1. Trocar textos institucionais (CNPJ, ouvidoria, termos) pelos dados reais.
-2. Conectar o formulário de abertura de conta a um backend/CRM.
-3. Adicionar páginas internas (Termos, Privacidade) com React Router, se
-   o site crescer além de uma landing page única.
-4. Rodar um Lighthouse/PageSpeed antes de publicar para checar performance.
-"# S3-Bank-demo-react" 
