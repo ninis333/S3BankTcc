@@ -12,7 +12,11 @@
 }
 
 .home-page .home-reveal,
-.about-page .home-reveal {
+.about-page .home-reveal,
+.terms-page .home-reveal,
+.privacy-page .home-reveal,
+.help-page .home-reveal,
+.footer .home-reveal {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -22,7 +26,11 @@
 }
 
 .home-page .home-reveal--visible,
-.about-page .home-reveal--visible {
+.about-page .home-reveal--visible,
+.terms-page .home-reveal--visible,
+.privacy-page .home-reveal--visible,
+.help-page .home-reveal--visible,
+.footer .home-reveal--visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -33,7 +41,11 @@
   }
 
   .home-page .home-reveal,
-  .about-page .home-reveal {
+  .about-page .home-reveal,
+  .terms-page .home-reveal,
+  .privacy-page .home-reveal,
+  .help-page .home-reveal,
+  .footer .home-reveal {
     transition-duration: 450ms !important;
   }
 }

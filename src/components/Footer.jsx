@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import logo from '../assets/logo.png'
 import { Link } from 'react-router-dom'
 import './Footer.css'
@@ -18,8 +19,46 @@ const COLUMNS = [
 ]
 
 export default function Footer() {
+  const footerRef = useRef(null)
+
+  useEffect(() => {
+    const footer = footerRef.current
+    if (!footer) return undefined
+
+    const revealElements = footer.querySelectorAll(
+      '.footer__brand, .footer__columns, .footer__col, .footer__bottom',
+    )
+
+    if (!('IntersectionObserver' in window)) {
+      revealElements.forEach((element) => {
+        element.classList.add('home-reveal', 'home-reveal--visible')
+      })
+      return undefined
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('home-reveal--visible')
+        } else {
+          entry.target.classList.remove('home-reveal--visible')
+        }
+      })
+    }, { threshold: 0.12 })
+
+    revealElements.forEach((element, index) => {
+      element.classList.add('home-reveal')
+      element.style.setProperty('--reveal-delay', `${Math.min(index * 100, 500)}ms`)
+      observer.observe(element)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
   return (
-    <footer className="footer">
+    <footer className="footer" ref={footerRef}>
       <div className="container footer__top">
         <div className="footer__brand">
           <img src={logo} alt="S3Bank" />
