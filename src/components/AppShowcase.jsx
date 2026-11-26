@@ -25,13 +25,28 @@ export default function AppShowcase() {
             <li>Cartão virtual gerado na hora, pronto pra usar</li>
             <li>Cofrinhos com objetivo e data</li>
           </ul>
-
-          <div className="appshow__stores">
-            <span className="appshow__store">App Store</span>
-            <span className="appshow__store">Google Play</span>
-          </div>
         </div>
 
+
+        <div className="appshow__stores">
+  <a
+    className="appshow__store"
+    href="https://www.apple.com/app-store/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    App Store
+  </a>
+
+  <a
+    className="appshow__store"
+    href="https://play.google.com/store/search?q=S3Bank&c=apps"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Google Play
+  </a>
+</div>
         <div className="appshow__panel">
           <div className="appshow__panel-head">
             <span>Saldo disponível</span>

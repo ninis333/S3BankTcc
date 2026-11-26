@@ -83,6 +83,14 @@ export default function Footer() {
                       <Link to="/termos-de-uso">{l}</Link>
                     ) : l === 'Privacidade' ? (
                       <Link to="/privacidade">{l}</Link>
+                    ) : l === 'App S3Bank' ? (
+                      <a
+                        href="https://play.google.com/store/search?q=S3Bank&c=apps"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {l}
+                      </a>
                     ) : l === 'Fale conosco' ? (
                       <a
                         href="https://mail.google.com/mail/?view=cm&fs=1&to=S3Bank%40gmail.com"

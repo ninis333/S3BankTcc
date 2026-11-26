@@ -6,7 +6,7 @@ import './Header.css'
 const LINKS = [
   { label: 'Conta', href: '#abrir-conta' },
   { label: 'Cartões', href: '#cartoes' },
-  { label: 'App', href: '#app' },
+  { label: 'App', href: 'https://play.google.com/store/search?q=S3Bank&c=apps', external: true },
   { label: 'Segurança', href: '#seguranca' },
 ]
 
@@ -31,7 +31,14 @@ export default function Header({ showLinks = true }) {
           <>
             <nav className="header__nav" aria-label="Navegação principal">
               {LINKS.map((l) => (
-                <a key={l.href} href={l.href}>{l.label}</a>
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target={l.external ? '_blank' : undefined}
+                  rel={l.external ? 'noopener noreferrer' : undefined}
+                >
+                  {l.label}
+                </a>
               ))}
             </nav>
           </>
@@ -60,7 +67,15 @@ export default function Header({ showLinks = true }) {
         {showLinks && (
           <>
             {LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
+              <a
+                key={l.href}
+                href={l.href}
+                target={l.external ? '_blank' : undefined}
+                rel={l.external ? 'noopener noreferrer' : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {l.label}
+              </a>
             ))}
           </>
         )}
